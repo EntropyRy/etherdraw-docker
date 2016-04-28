@@ -1,8 +1,6 @@
-# Etherpad-Lite Dockerfile
+# Etherdraw Dockerfile
 #
-# https://github.com/ether/etherpad-docker
-#
-# Developed from a version by Evan Hazlett at https://github.com/arcus-io/docker-etherpad 
+# https://github.com/EntropyRy/etherdraw-docker
 #
 # Version 1.0
 
@@ -10,13 +8,12 @@
 FROM node:0.12
 MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
 
-# Get Etherpad-lite's other dependencies
+# Get Etherdraw's other dependencies
 RUN apt-get update
 RUN apt-get install -y gzip git-core libpango1.0-dev curl python libssl-dev pkg-config build-essential supervisor g++
 
 # Grab the latest Git version
 RUN cd /opt && git clone https://github.com/JohnMcLear/draw.git etherdraw
-#RUN cd /opt && npm install nan && cp node_modules/nan/nan*.h /usr/include/
 
 # Install node dependencies
 RUN /opt/etherdraw/bin/installDeps.sh
