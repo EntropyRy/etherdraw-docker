@@ -10,10 +10,10 @@ MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
 
 # Get Etherdraw's other dependencies
 RUN apt-get update
-RUN apt-get install -y gzip git-core libpango1.0-dev curl python libssl-dev pkg-config build-essential supervisor g++
+RUN apt-get install -y git-core libpango1.0-dev build-essential supervisor 
 
 # Grab the latest Git version
-RUN cd /opt && git clone https://github.com/JohnMcLear/draw.git etherdraw
+RUN cd /opt && git clone -b bleeding https://github.com/JohnMcLear/draw.git etherdraw
 
 # Install node dependencies
 RUN /opt/etherdraw/bin/installDeps.sh
